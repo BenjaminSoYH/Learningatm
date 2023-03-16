@@ -1,12 +1,14 @@
 <html>
     <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
-    <div class="topbar">
+    <div class="top-bar" id="v1">
         <a>test</a>
         <a>test1</a>
         <a>test2</a>
     </div>
+    <p id="poop">testing</p>
     <button onclick="testFunc()">CLICk</button>
 </body>
 
@@ -14,7 +16,11 @@
 
 <style>
 
-    .topbar{
+    {
+        box-sizing: border-box;
+    }
+
+    .top-bar{
         background-color: aqua;
         padding: 30px;
 
@@ -31,6 +37,8 @@
 
 <script>
     function testFunc() {
-        const myButton = document.getElementsByClassName('topbar');
-        myButton.style.width = '50px';}
+        console.log("Hello world!");
+        document.getElementById("poop").innerHTML = "yes";
+        document.getElementById("v1").style.width = "50%";
+        }
 </script>
