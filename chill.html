@@ -8,16 +8,42 @@
         <a>test1</a>
         <a>test2</a>
     </div>
-    <p id="poop">testing</p>
+    <button class="gameselbutton" onclick="alert(' ');">
+        <img src= "icons/bird.svg" id="birdicon" alt="Bird"/>
+    </button>
+    <button class="gameselbutton" onclick="alert(' ');">
+        <img src= "icons/canon.svg" id="canonicon" alt="canon"/>
+    </button>
+    <button class="gameselbutton" onclick="alert(' ');">
+        <img src= "icons/boots.svg" id="booticon" alt="boot"/>
+    </button>
+
+    <button class="gameselbutton"></button>
+
+
+
     <button onclick="testFunc()">CLICk</button>
 </body>
 
 </html>
 
 <style>
+    #birdicon {
 
-    {
-        box-sizing: border-box;
+    }
+    #canonicon {
+
+    }
+    #booticon {
+
+    }
+
+    .gameselbutton{
+        width: 300px;
+        height: 300px;
+        border: black;
+        -webkit-user-drag: none;
+
     }
 
     .top-bar{
@@ -33,12 +59,12 @@
     body{
         margin: 0;
     }
+
 </style>
 
 <script>
     function testFunc() {
         console.log("Hello world!");
-        document.getElementById("poop").innerHTML = "yes";
-        document.getElementById("v1").style.width = "50%";
+        alert("game selected");
         }
 </script>
