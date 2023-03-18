@@ -8,18 +8,13 @@
         <a>test1</a>
         <a>test2</a>
     </div>
-    <button class="gameselbutton" onclick="alert(' ');">
-        <img src= "icons/bird.svg" id="birdicon" alt="Bird"/>
-    </button>
-    <button class="gameselbutton" onclick="alert(' ');">
-        <img src= "icons/canon.svg" id="canonicon" alt="canon"/>
-    </button>
-    <button class="gameselbutton" onclick="alert(' ');">
-        <img src= "icons/boots.svg" id="booticon" alt="boot"/>
-    </button>
+    <div class="iconscontainer">
+    <input type="image" class="gameselbutton" onclick="alert(' tt')" src="icons/bird.svg" />
+    <input type="image" class="gameselbutton" onclick="alert(' tt')" src="icons/canon.svg" />
+    <input type="image" class="gameselbutton" onclick="alert(' tt')" src="icons/boots.svg" />
+    </div>
 
-    <button class="gameselbutton"></button>
-
+    
 
 
     <button onclick="testFunc()">CLICk</button>
@@ -28,6 +23,20 @@
 </html>
 
 <style>
+    .iconscontainer{
+
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+        background-color: purple;
+
+
+    }
+
+
+   
+
     #birdicon {
 
     }
@@ -42,8 +51,8 @@
         width: 300px;
         height: 300px;
         border: black;
-        -webkit-user-drag: none;
-
+        background-color: blue  ;
+        margin : 0 100px 0 100px;
     }
 
     .top-bar{
