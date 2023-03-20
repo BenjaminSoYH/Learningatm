@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
-
+    <div pad>
     <div class="iconscontainer" >
     <input type="image" class="gameseicon" id="birdicon" onclick="alert(' tt')" src="icons/bird.svg"  />
     <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/canon.svg" />
@@ -14,14 +14,13 @@
         <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/canon.svg" />
         <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/boots.svg" />
     </div>
+    </div>
     <div class="top-bar" id="v1">
         <a>test</a>
         <a>test1</a>
         <a>test2</a>
     </div>
 
-
-    <button onclick="testFunc()">CLICk</button>
 </body>
 
 </html>
@@ -38,6 +37,18 @@
         user-select: none;
 
     }
+    .gameseicon{
+
+        height: 300px;
+        border: black;
+        background-color: blue  ;
+        margin : 0 100px 0 ;
+        user-drag: none;
+        -webkit-user-drag: none;
+        animation: floating 5s infinite;
+        animation-timing-function: ease-in-out;
+
+    }
 
     #birdicon {
 
@@ -51,29 +62,14 @@
     }
 
 
-    .gameseicon{
-        width: 300px;
-        height: 300px;
-        border: black;
-        background-color: blue  ;
-        margin : 0 100px 0 100px;
-        user-drag: none;
-        -webkit-user-drag: none;
-        animation: floating 5s infinite;
-        animation-timing-function: ease-in-out;
-
-    }
-
     .top-bar{
         background-color: aqua;
-        padding: 100px;
+        width: 100%;
+        padding-top: 300px;
+        position: absolute;
+        bottom: 0;
+    }
 
-    }
-    .topbar a {
-        margin-left: 30px;
-        background-color: purple;
-        padding:30px;
-    }
     body{
         margin: 0;
     }
@@ -93,8 +89,8 @@
 
     const icons = document.querySelectorAll('.gameseicon');
     icons.forEach(icon => {
-        const delay = Math.random() * 2; // generate a random delay between 0 and 3 seconds
-        icon.style.animation = `floating 3s infinite ${delay}s`; // set the delay for the animation
+        const delay = Math.random() * 2;
+        icon.style.animation = `floating 3s infinite ${delay}s`;
     });
 
 </script>
