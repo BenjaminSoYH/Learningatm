@@ -3,18 +3,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
+
+    <div class="iconscontainer" >
+    <input type="image" class="gameseicon" id="birdicon" onclick="alert(' tt')" src="icons/bird.svg"  />
+    <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/canon.svg" />
+    <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/boots.svg" />
+    </div>
+    <div class="iconscontainer" >
+        <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/bird.svg"  />
+        <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/canon.svg" />
+        <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/boots.svg" />
+    </div>
     <div class="top-bar" id="v1">
         <a>test</a>
         <a>test1</a>
         <a>test2</a>
     </div>
-    <div class="iconscontainer">
-    <input type="image" class="gameselbutton" onclick="alert(' tt')" src="icons/bird.svg" />
-    <input type="image" class="gameselbutton" onclick="alert(' tt')" src="icons/canon.svg" />
-    <input type="image" class="gameselbutton" onclick="alert(' tt')" src="icons/boots.svg" />
-    </div>
-
-    
 
 
     <button onclick="testFunc()">CLICk</button>
@@ -30,34 +34,39 @@
         justify-content: center;
         align-items: center ;
         background-color: purple;
-
+        -ms-user-select: none;
+        user-select: none;
 
     }
-
-
-   
 
     #birdicon {
 
     }
     #canonicon {
 
+
     }
     #booticon {
 
     }
 
-    .gameselbutton{
+
+    .gameseicon{
         width: 300px;
         height: 300px;
         border: black;
         background-color: blue  ;
         margin : 0 100px 0 100px;
+        user-drag: none;
+        -webkit-user-drag: none;
+        animation: floating 5s infinite;
+        animation-timing-function: ease-in-out;
+
     }
 
     .top-bar{
         background-color: aqua;
-        padding: 30px;
+        padding: 100px;
 
     }
     .topbar a {
@@ -68,6 +77,11 @@
     body{
         margin: 0;
     }
+    @keyframes floating {
+        0% { transform: translate(0,  0px); }
+        50%  { transform: translate(0, 20px); }
+        100% { transform: translate(0,  -0px); }
+    }
 
 </style>
 
@@ -76,4 +90,11 @@
         console.log("Hello world!");
         alert("game selected");
         }
+
+    const icons = document.querySelectorAll('.gameseicon');
+    icons.forEach(icon => {
+        const delay = Math.random() * 2; // generate a random delay between 0 and 3 seconds
+        icon.style.animation = `floating 3s infinite ${delay}s`; // set the delay for the animation
+    });
+
 </script>
