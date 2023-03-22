@@ -5,6 +5,7 @@
 <body >
     <div pad>
     <div class="iconscontainer" >
+
     <input type="image" class="gameseicon" id="birdicon" onclick="alert(' tt')" src="icons/bird.svg"  />
     <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/canon.svg" />
     <input type="image" class="gameseicon" onclick="alert(' tt')" src="icons/boots.svg" />
@@ -16,9 +17,9 @@
         <div style="height: 250px"></div>
     </div>
     <div class="top-bar">
-        <button onclick="myMove()"> click</button>
+        <button onclick="trainMove()"> click</button>
     </div>
-    <div style="position: fixed; bottom: 0 ;padding:50px; background-color: red; height: 25px; width: 25px;"class="blokcoftrain" onclick="myMove()"  ></div>
+    <div class="blokcoftrain" onclick="trainMove()"  ></div>
 
 
 </body>
@@ -61,6 +62,16 @@
         bottom: 0;
         opacity: 0.5;
 
+
+    }
+    .blokcoftrain {
+        position: fixed;
+        bottom: 0;
+        left: -1000px ;
+        padding:50px;
+        background-color: red;
+        height: 25px;
+        width: 25px;
     }
     @media only screen and (min-width: 0px) {
         .iconscontainer {grid-template-columns: repeat(1, 1fr);}
@@ -77,10 +88,11 @@
 
     @media only screen and (max-height: 400px) {
         .top-bar{visibility: hidden;}
+        .blokcoftrain{visibility: hidden;}
+
     }
 
     #birdicon {
-
     }
     #canonicon {
 
@@ -104,23 +116,25 @@
 </style>
 
 <script>
-    function testFunc() {
-        console.log("Hello world!");
-        alert("game selected");
-        }
-        position = 0;
-    function myMove() {
 
-        console.log('tttt');
-        const element = document.querySelector('.blokcoftrain');
-        position += 10;
-        element.style.transform = `translateX(${position}px)`;
-        if (position < 1920) {
-        requestAnimationFrame(myMove);}
-        else {
-            position =-1000;
+    position = 0;
+    function trainMove() {
+            const element = document.querySelector('.blokcoftrain');
+            position += 10;
+            element.style.transform = `translateX(${position}px)`;
+            if (position < innerWidth + 1000) {
+                requestAnimationFrame(trainMove);
+            } else {
+                position = -1000;
         }
     }
+
+    const birdsel = document.getElementById('birdicon');
+    birdsel.onmouseover = function () {
+       
+    };
+
+
 
     const icons = document.querySelectorAll('.gameseicon');
     icons.forEach(icon => {
