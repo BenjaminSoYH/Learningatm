@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Title</title>
+</head>
+<body onload="myGameArea.start()">
+<canvas id="canvaz"></canvas>
+
+</body>
+</html>
+
+<style>
+    canvas {
+        border: 1px solid #d3d3d3;
+        background-color: #f1f1f1;
+        width: 500px;
+        height: 500px;
+    }
+</style>
+<script>
+    const canvas = document.getElementById('canvaz');
+    const ctx = canvas.getContext('2d');
+
+    function update() {
+
+        ctx.beginPath();
+        ctx.arc(100, 100, 50,0,Math.PI*2);
+        ctx.stroke();
+
+    }
+
+    function draw() {
+
+    }
+
+    setInterval( function (){ update(); draw()}, 30);
+    update();
+</script>
