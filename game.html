@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div class="player1"></div>
+<div class="net"></div>
+<div class="ground"></div>
+<div class = "ball"></div>
+<div class = "test"></div>
+
+
+<style>
+  .player1 {
+    position:absolute;
+    background-color: red;
+    height: 8vw;
+    width: 8vw;
+    bottom: 10vw;
+  }
+  .ground {
+    position:absolute;
+    bottom:0;
+    width: 100vw;
+    height: 10vw;
+    background-color: green;
+
+  }
+  .net {
+    position: absolute;
+    left: 47vw;
+    height: 20vw;
+    width: 6vw;
+    bottom: 10vw;
+    background-color: purple;
+    opacity: 50%;
+
+  }
+  .ball {
+
+    width: 6vw;
+    height: 6vw;
+    position: absolute;
+    left: 15vw ;
+    background-color: black;
+  }
+
+  body{
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .test {
+    width: 5vw;
+    height: 5vw;
+    background-color: pink;
+    position: absolute;
+    bottom: 30vw;
+    left:30vw;
+    opacity: 50%;
+  }
+
+
+
+</style>
+<script>
+
+  let xspeed = -1;
+  let xplayer = 0;
+
+  let xball = 0;
+  let yball = 0;
+
+  let xsling = 0;
+  let ysling = 0;
+
+  function update() {
+      updatePlayer1();
+      updateBall()
+      sling();
+
+  }
+
+  function sling() {
+
+
+    let v = 1;
+    let t = 0;
+    let angle = Math.PI/4;
+    let gravity = 9.8;
+
+    let y = 0 + v* Math.sin(angle)*t + 1/2*gravity*t*t;
+    let x = v*Math.cos(angle)*t;
+
+
+    t += 1;
+
+    var div = document.querySelector('.test');
+    div.style.background = "green";
+    div.style.left = xsling +'vw';
+    div.style.top = 20+ 'vw';
+  }
+
+  function shootBall() {
+    xball = 50;
+    yball = 0;
+
+  }
+  function updatePlayer1() {
+    xplayer += xspeed;
+    var p1 = document.querySelector('.player1');
+    p1.style.position = "absolute";
+
+    if (xplayer < 0) {
+      xplayer = 0;}
+    if (xplayer >= 50-3-8) {
+      xplayer = 50-3-8;}
+    p1.style.left = xplayer+'vw';
+
+    }
+
+    function updateBall() {
+
+      const div = document.querySelector('.ball');
+
+      div.style.background ="gray";
+
+      yball += 1;
+      if (yball >= ((100 * window.innerHeight) / window.innerWidth)-10-6) {
+        div.style.backgroundColor = 'blue'
+        yball = ((100 * window.innerHeight) / window.innerWidth)-10-6;
+      }
+      div.style.left = xball +'vw';
+      div.style.top = yball + 'vw';
+
+    }
+
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === " ") {
+      xspeed *= -1;
+    }
+    if (event.key === "e") {
+      shootBall();
+    }
+    if (event.key==="r"){
+      yball-= 8;
+    }
+  });
+
+
+  setInterval(update,30);
+
+</script>
+
+
+</body>
+</html>
